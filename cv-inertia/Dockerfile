@@ -14,8 +14,8 @@ RUN apt-get update && apt-get install -y \
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Install Node.js 18
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+# Install Node.js 20
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs
 
 # Set working directory
@@ -27,11 +27,11 @@ COPY cv-inertia/composer.json cv-inertia/composer.lock ./
 # Install PHP dependencies
 RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
 
-# Copy package files from cv-inertia
-COPY cv-inertia/package*.json ./
+# Copy package files from cv-inertia (especificando lock file explícitamente)
+COPY cv-inertia/package.json cv-inertia/package-lock.json ./
 
-# Install Node dependencies
-RUN npm install
+# Install Node dependencies with npm ci (más rápido y determinista)
+RUN npm ci --only=production
 
 # Copy entire cv-inertia folder
 COPY cv-inertia/ .

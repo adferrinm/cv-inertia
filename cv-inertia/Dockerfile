@@ -42,8 +42,13 @@ RUN composer dump-autoload --optimize
 # Build frontend assets
 RUN npm run build
 
-# Verify build output
-RUN ls -la public/build/ || true
+# Debug: Ver estructura completa del build
+RUN echo "=== Build directory structure ===" && \
+    find public/build -type f && \
+    echo "=== Manifest check ===" && \
+    (cat public/build/.vite/manifest.json 2>/dev/null || echo "No manifest in .vite") && \
+    (cat public/build/manifest.json 2>/dev/null || echo "No manifest in root") && \
+    echo "===" || true
 
 # Set permissions
 RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache

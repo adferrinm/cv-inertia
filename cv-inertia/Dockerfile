@@ -21,7 +21,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
 # Set working directory
 WORKDIR /app
 
-# Copy composer files first (for layer caching)
+# Copy composer files
 COPY composer.json composer.lock ./
 
 # Install PHP dependencies

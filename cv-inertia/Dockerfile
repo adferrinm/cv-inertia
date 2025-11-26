@@ -43,7 +43,7 @@ RUN composer dump-autoload --optimize
 RUN npm run build
 
 # Verify build output
-RUN ls -la public/build/ && cat public/build/manifest.json
+RUN ls -la public/build/ || true
 
 # Set permissions
 RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache

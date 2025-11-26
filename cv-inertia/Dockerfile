@@ -27,11 +27,11 @@ COPY cv-inertia/composer.json cv-inertia/composer.lock ./
 # Install PHP dependencies
 RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
 
-# Copy package files from cv-inertia (especificando lock file explícitamente)
+# Copy package files from cv-inertia
 COPY cv-inertia/package.json cv-inertia/package-lock.json ./
 
-# Install Node dependencies with npm ci (más rápido y determinista)
-RUN npm ci --only=production
+# Install Node dependencies (incluyendo devDependencies para el build)
+RUN npm ci
 
 # Copy entire cv-inertia folder
 COPY cv-inertia/ .

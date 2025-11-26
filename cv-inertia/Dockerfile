@@ -21,20 +21,20 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
 # Set working directory
 WORKDIR /app
 
-# Copy composer files
-COPY composer.json composer.lock ./
+# Copy composer files from cv-inertia
+COPY cv-inertia/composer.json cv-inertia/composer.lock ./
 
 # Install PHP dependencies
 RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
 
-# Copy package files
-COPY package*.json ./
+# Copy package files from cv-inertia
+COPY cv-inertia/package*.json ./
 
 # Install Node dependencies
 RUN npm install
 
-# Copy application code
-COPY . .
+# Copy entire cv-inertia folder
+COPY cv-inertia/ .
 
 # Generate autoload files
 RUN composer dump-autoload --optimize

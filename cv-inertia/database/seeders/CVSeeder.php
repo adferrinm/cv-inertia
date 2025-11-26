@@ -12,7 +12,12 @@ class CVSeeder extends Seeder
 {
     public function run(): void
     {
-        // Crear persona
+
+        if (Person::count() > 0) {
+            $this->command->info('Data already exists, skipping seed.');
+            return;
+        }
+
         $person = Person::create([
             'name' => 'Adrian Ferrin Moreno',
             'headline' => 'Senior Backend Developer',
@@ -26,7 +31,6 @@ class CVSeeder extends Seeder
             'portfolio_url' => 'https://mnf.red/848ee128-88be-4ead-aae1-1cb1d15f6c2a',
         ]);
 
-        // Crear Skills
         $skills = [
             ['name' => 'Python', 'category' => 'language', 'logo_slug' => 'python', 'level' => 5],
             ['name' => 'Django', 'category' => 'framework', 'logo_slug' => 'django', 'level' => 5],
@@ -54,7 +58,6 @@ class CVSeeder extends Seeder
             Skill::create($skillData);
         }
 
-        // Experiencia 1: WOCU-Monitoring (actual)
         $exp1 = Experience::create([
             'person_id' => $person->id,
             'company' => 'WOCU-Monitoring',
@@ -64,10 +67,8 @@ class CVSeeder extends Seeder
             'end_date' => null,
         ]);
 
-        // Asociar skills a experiencia 1
         $exp1->skills()->attach(Skill::whereIn('name', ['Python', 'Django', 'MySQL', 'Docker', 'Elasticsearch', 'Celery', 'Redis', 'RabbitMQ'])->pluck('id'));
 
-        // Experiencia 2: Divine Solutions
         $exp2 = Experience::create([
             'person_id' => $person->id,
             'company' => 'Divine Solutions LLC',
@@ -79,7 +80,6 @@ class CVSeeder extends Seeder
 
         $exp2->skills()->attach(Skill::whereIn('name', ['Python', 'Django', 'Vue.js', 'PostgreSQL'])->pluck('id'));
 
-        // Experiencia 3: CALISOFT
         $exp3 = Experience::create([
             'person_id' => $person->id,
             'company' => 'CALISOFT',
@@ -91,7 +91,6 @@ class CVSeeder extends Seeder
 
         $exp3->skills()->attach(Skill::whereIn('name', ['Java', 'Spring', 'React', 'MySQL', 'MongoDB'])->pluck('id'));
 
-        // Educación
         Education::create([
             'person_id' => $person->id,
             'institution' => 'CUJAE',

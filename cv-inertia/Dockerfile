@@ -42,6 +42,9 @@ RUN composer dump-autoload --optimize
 # Build frontend assets
 RUN npm run build
 
+# Verify build output
+RUN ls -la public/build/ && cat public/build/manifest.json
+
 # Set permissions
 RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
 
@@ -49,4 +52,8 @@ RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
 EXPOSE 8080
 
 # Start command
-CMD php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan serve --host=0.0.0.0 --port=${PORT:-8080}
+CMD php artisan migrate --force && \
+    php artisan db:seed --force && \
+    php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan serve --host=0.0.0.0 --port=${PORT:-8080}

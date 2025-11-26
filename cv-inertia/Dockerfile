@@ -33,22 +33,8 @@ COPY cv-inertia/package.json cv-inertia/package-lock.json ./
 # Install Node dependencies
 RUN npm ci
 
-# Copy application code (excluding node_modules and vendor)
-COPY cv-inertia/app ./app
-COPY cv-inertia/bootstrap ./bootstrap
-COPY cv-inertia/config ./config
-COPY cv-inertia/database ./database
-COPY cv-inertia/public ./public
-COPY cv-inertia/resources ./resources
-COPY cv-inertia/routes ./routes
-COPY cv-inertia/storage ./storage
-COPY cv-inertia/tests ./tests
-COPY cv-inertia/.env.example ./.env.example
-COPY cv-inertia/artisan ./artisan
-COPY cv-inertia/vite.config.js ./vite.config.js
-COPY cv-inertia/postcss.config.js ./postcss.config.js 2>/dev/null || true
-COPY cv-inertia/tailwind.config.js ./tailwind.config.js 2>/dev/null || true
-COPY cv-inertia/jsconfig.json ./jsconfig.json 2>/dev/null || true
+# Copy entire cv-inertia folder (excluding what's in .dockerignore)
+COPY cv-inertia/ .
 
 # Generate autoload files
 RUN composer dump-autoload --optimize

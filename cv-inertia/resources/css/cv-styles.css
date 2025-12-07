@@ -1010,3 +1010,47 @@ html {
     padding-right: 0 !important;
   }
 }
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.cv-page {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.cv-header__grid-bg,
+.cv-header__grid {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .cv-header {
+    overflow-x: hidden;
+  }
+  
+  .cv-header__grid {
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  .cv-header__container,
+  .cv-main {
+    width: 100%;
+  }
+  
+  .contact-link,
+  .cv-stats,
+  .cv-skills,
+  .timeline-item {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}

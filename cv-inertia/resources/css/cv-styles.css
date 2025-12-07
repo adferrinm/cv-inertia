@@ -1069,7 +1069,7 @@ html, body {
   }
 
   .timeline-dot {
-    left: -2px !important;
+    left: 1px !important;
   }
 
   .timeline-item {

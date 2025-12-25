@@ -12,6 +12,11 @@ class Skill extends Model
         'category',
         'logo_slug',
         'level',
+        'mastery_level',
+    ];
+
+    protected $casts = [
+        'level' => 'integer',
     ];
 
     public function experiences(): BelongsToMany

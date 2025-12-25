@@ -9,6 +9,16 @@
    GLOBAL UTILITIES
    ============================================ */
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 .font-mono {
   font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
@@ -31,17 +41,14 @@
   background: rgba(16, 185, 129, 0.5);
 }
 
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
 /* ============================================
    PAGE LAYOUT
    ============================================ */
 
 .cv-page {
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
   background: linear-gradient(to bottom right, #020617, #0f172a, #020617);
 }
 
@@ -61,11 +68,15 @@ html {
   position: absolute;
   inset: 0;
   opacity: 0.05;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .cv-header__grid {
   position: absolute;
   inset: 0;
+  max-width: 100%;
+  overflow: hidden;
   background-image: 
     repeating-linear-gradient(0deg, transparent, transparent 1px, #10b981 1px, #10b981 2px),
     repeating-linear-gradient(90deg, transparent, transparent 1px, #10b981 1px, #10b981 2px);
@@ -82,6 +93,15 @@ html {
 @media (min-width: 768px) {
   .cv-header__container {
     padding: 7rem 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .cv-header__container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -187,6 +207,8 @@ html {
   color: rgb(148, 163, 184);
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.875rem;
+  width: 100%;
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -207,6 +229,8 @@ html {
   color: rgb(148, 163, 184);
   text-decoration: none;
   transition: all 0.3s ease;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 .contact-link:hover {
@@ -302,6 +326,13 @@ html {
   padding: 4rem 1.5rem;
 }
 
+@media (max-width: 767px) {
+  .cv-main {
+    padding: 2rem 1rem;
+    max-width: 100%;
+  }
+}
+
 .cv-main__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -379,6 +410,12 @@ html {
   position: relative;
 }
 
+@media (max-width: 767px) {
+  .cv-timeline__container {
+    padding-left: 0;
+  }
+}
+
 .cv-timeline__line {
   display: none;
   position: absolute;
@@ -399,7 +436,7 @@ html {
 .cv-timeline__line--mobile {
   display: block;
   position: absolute;
-  left: 0;
+  left: 0.5rem;
   top: 0;
   bottom: 0;
   width: 2px;
@@ -424,6 +461,12 @@ html {
   gap: 1.5rem;
 }
 
+@media (max-width: 1023px) {
+  .cv-sidebar {
+    position: static;
+  }
+}
+
 /* Skills Section */
 .cv-skills {
   background: rgba(30, 41, 59, 0.6);
@@ -432,11 +475,18 @@ html {
   border-radius: 0.75rem;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  max-width: 100%;
 }
 
 .cv-skills:hover {
   border-color: rgba(16, 185, 129, 0.4);
   box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+}
+
+@media (max-width: 767px) {
+  .cv-skills {
+    padding: 1rem;
+  }
 }
 
 .cv-skills__header {
@@ -458,6 +508,10 @@ html {
   font-family: 'JetBrains Mono', monospace;
 }
 
+.cv-skills__title:hover {
+  color: rgb(52, 211, 153);
+}
+
 .cv-skills__categories {
   display: flex;
   flex-direction: column;
@@ -477,6 +531,10 @@ html {
   gap: 0.5rem;
 }
 
+.cv-skills__category-title:hover {
+  color: rgb(52, 211, 153);
+}
+
 .cv-skills__category-icon {
   color: rgb(16, 185, 129);
 }
@@ -487,6 +545,12 @@ html {
   gap: 0.5rem;
 }
 
+@media (max-width: 767px) {
+  .cv-skills__list {
+    gap: 0.4rem;
+  }
+}
+
 /* Stats Card */
 .cv-stats {
   background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.05));
@@ -495,11 +559,18 @@ html {
   padding: 1.5rem;
   backdrop-filter: blur(8px);
   transition: all 0.3s ease;
+  max-width: 100%;
 }
 
 .cv-stats:hover {
   border-color: rgba(16, 185, 129, 0.6);
   box-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
+}
+
+@media (max-width: 767px) {
+  .cv-stats {
+    padding: 1rem;
+  }
 }
 
 .cv-stats__header {
@@ -562,6 +633,12 @@ html {
 .cv-footer__container {
   max-width: 80rem;
   margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .cv-footer__container {
+    max-width: 100%;
+  }
 }
 
 .cv-footer__content {
@@ -760,10 +837,10 @@ html {
    TIMELINE ITEM COMPONENT
    ============================================ */
 
-/* Base Timeline Item */
 .timeline-item {
   position: relative;
   margin-bottom: 3rem;
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -779,6 +856,16 @@ html {
   .timeline-item--left {
     margin-right: auto;
     padding-right: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .timeline-item {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 2.5rem !important;
+    padding-right: 0 !important;
   }
 }
 
@@ -813,7 +900,7 @@ html {
 
 @media (max-width: 767px) {
   .timeline-dot {
-    left: 0;
+    left: 1px !important;
   }
 }
 
@@ -827,12 +914,20 @@ html {
   padding: 1.5rem;
   transition: all 0.3s ease;
   cursor: default;
+  width: 100%;
+  max-width: 100%;
 }
 
 .timeline-card:hover {
   border-color: rgba(16, 185, 129, 0.5);
   box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
   transform: translateY(-0.5rem);
+}
+
+@media (max-width: 767px) {
+  .timeline-card {
+    max-width: calc(100vw - 3.5rem);
+  }
 }
 
 /* Arrow */
@@ -884,6 +979,13 @@ html {
   flex: 1;
 }
 
+@media (max-width: 767px) {
+  .timeline-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
 .timeline-title {
   font-size: 1.25rem;
   font-weight: 700;
@@ -895,6 +997,13 @@ html {
 
 .timeline-item:hover .timeline-title {
   color: rgb(52, 211, 153);
+}
+
+@media (max-width: 767px) {
+  .timeline-title {
+    font-size: 1.125rem;
+    line-height: 1.3;
+  }
 }
 
 .timeline-subtitle {
@@ -927,6 +1036,12 @@ html {
   background: rgba(16, 185, 129, 0.1);
   border-color: rgba(16, 185, 129, 0.5);
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+@media (max-width: 767px) {
+  .timeline-date {
+    align-self: flex-start;
+  }
 }
 
 /* Type Badge */
@@ -1000,182 +1115,274 @@ html {
   color: rgb(16, 185, 129);
 }
 
-/* Mobile Adjustments */
 @media (max-width: 767px) {
-  .timeline-item {
-    width: 100%;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 2rem !important;
-    padding-right: 0 !important;
-  }
-}
-
-/* ============================================
-   MOBILE FIXES - COPIAR AL FINAL DE cv-styles.css
-   ============================================
-   
-   Estos fixes corrigen:
-   1. Dots del timeline desalineados
-   2. Contenido cortado en móvil
-   3. Sidebar fuera de vista
-   4. Overflow horizontal
-   
-   ============================================ */
-
-/* ============================================
-   1. OVERFLOW HORIZONTAL FIX
-   ============================================ */
-
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.cv-page {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.cv-header__grid-bg,
-.cv-header__grid {
-  max-width: 100%;
-  overflow: hidden;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-
-@media (max-width: 767px) {
-  .cv-timeline__container {
-    padding-left: 0;
-  }
-
-  .cv-timeline__line--mobile {
-    display: block;
-    position: absolute;
-    left: 0.5rem !important; 
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(
-      to bottom, 
-      rgba(16, 185, 129, 0.5), 
-      rgba(16, 185, 129, 0.3), 
-      transparent
-    );
-  }
-
-  .timeline-dot {
-    left: 1px !important;
-  }
-
-  .timeline-item {
-    width: 100%;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 2.5rem !important;
-    padding-right: 0 !important;
-  }
-
-  .timeline-card {
-    width: 100%;
-    max-width: calc(100vw - 3.5rem);
-    box-sizing: border-box;
-  }
-
-  .timeline-info {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .timeline-title {
-    font-size: 1.125rem;
-    line-height: 1.3;
-  }
-
-  .timeline-date {
-    align-self: flex-start;
-  }
-
   .timeline-tag {
     font-size: 0.7rem;
     padding: 0.2rem 0.6rem;
   }
 }
 
+/* ============================================
+   TECHNOLOGIES SECTION
+   ============================================ */
+
+.cv-technologies {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  background: rgba(15, 23, 42, 0.4);
+  border-top: 1px solid rgba(16, 185, 129, 0.1);
+}
 
 @media (max-width: 767px) {
-  .cv-main {
+  .cv-technologies {
     padding: 2rem 1rem;
   }
+}
 
-  .cv-header {
-    overflow-x: hidden;
-  }
+.cv-technologies__container {
+  width: 100%;
+}
 
-  .cv-header__grid {
-    width: 100%;
-    max-width: 100vw;
-  }
+/* Header */
+.cv-technologies__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
 
-  .cv-header__container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    width: 100%;
-  }
+.cv-technologies__icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(16, 185, 129);
+}
 
-  .cv-header__contacts {
-    width: 100%;
-    max-width: 100%;
-  }
+.cv-technologies__icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
 
-  .contact-link {
-    max-width: 100%;
-    word-break: break-word;
+.cv-technologies__prompt {
+  color: rgb(100, 116, 139);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.cv-technologies__title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: rgb(241, 245, 249);
+  font-family: 'JetBrains Mono', monospace;
+  transition: color 0.3s ease;
+}
+
+.cv-technologies__title:hover {
+  color: rgb(52, 211, 153);
+}
+
+.cv-technologies__divider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(16, 185, 129, 0.5), transparent);
+}
+
+/* Category */
+.cv-technologies__category {
+  margin-bottom: 2rem;
+}
+
+.cv-technologies__category:last-child {
+  margin-bottom: 0;
+}
+
+.cv-technologies__category-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.cv-technologies__category-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(16, 185, 129, 0.4), transparent);
+}
+
+.cv-technologies__category-title--master {
+  color: rgb(52, 211, 153);
+}
+
+.cv-technologies__category-title--master::after {
+  background: linear-gradient(to right, rgba(16, 185, 129, 0.4), transparent);
+}
+
+.cv-technologies__category-title--working {
+  color: rgb(96, 165, 250);
+}
+
+.cv-technologies__category-title--working::after {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.4), transparent);
+}
+
+.cv-technologies__category-title--avoid {
+  color: rgb(248, 113, 113);
+}
+
+.cv-technologies__category-title--avoid::after {
+  background: linear-gradient(to right, rgba(239, 68, 68, 0.4), transparent);
+}
+
+.cv-technologies__category-icon {
+  font-size: 1.125rem;
+}
+
+/* Grid */
+.cv-technologies__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .cv-technologies__grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   }
 }
 
-
-@media (max-width: 1023px) {
-  .cv-sidebar {
-    position: static;
+@media (min-width: 1024px) {
+  .cv-technologies__grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   }
 }
 
-@media (max-width: 767px) {
-  .cv-skills {
-    padding: 1rem;
-    max-width: 100%;
-    box-sizing: border-box;
+@media (max-width: 640px) {
+  .cv-technologies__grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 0.6rem;
   }
+}
 
-  .cv-stats {
-    padding: 1rem;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
+/* ============================================
+   TECH BADGE COMPONENT
+   ============================================ */
 
-  .cv-skills__list {
+.tech-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 0.75rem;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgb(51, 65, 85);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: default;
+  min-height: 85px;
+}
+
+.tech-badge:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(16, 185, 129, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+}
+
+.tech-badge--avoid {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.tech-badge--avoid:hover {
+  border-color: rgba(239, 68, 68, 0.6);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.2);
+}
+
+/* Icon */
+.tech-badge__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: all 0.3s ease;
+  filter: grayscale(0.3);
+}
+
+.tech-badge:hover .tech-badge__icon {
+  filter: grayscale(0);
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.4));
+}
+
+.tech-badge--avoid:hover .tech-badge__icon {
+  filter: drop-shadow(0 4px 12px rgba(239, 68, 68, 0.4));
+}
+
+/* Placeholder */
+.tech-badge__placeholder {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.2);
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgb(52, 211, 153);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.tech-badge--avoid .tech-badge__placeholder {
+  background: rgba(239, 68, 68, 0.2);
+  color: rgb(248, 113, 113);
+}
+
+/* Name */
+.tech-badge__name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgb(203, 213, 225);
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.tech-badge:hover .tech-badge__name {
+  color: rgb(52, 211, 153);
+}
+
+.tech-badge--avoid:hover .tech-badge__name {
+  color: rgb(248, 113, 113);
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .tech-badge {
+    padding: 0.75rem 0.5rem;
     gap: 0.4rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .cv-header__container,
-  .cv-main,
-  .cv-footer__container {
-    max-width: 100%;
-    box-sizing: border-box;
+    min-height: 75px;
   }
 
-  .timeline-item,
-  .timeline-card,
-  .cv-stats,
-  .cv-skills {
-    max-width: 100%;
-    box-sizing: border-box;
+  .tech-badge__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .tech-badge__placeholder {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+
+  .tech-badge__name {
+    font-size: 0.75rem;
   }
 }

@@ -16,6 +16,9 @@
       </div>
     </div>
 
+    <!-- Technologies Section -->
+    <Technologies :technologies="person.skills" />
+
     <!-- Footer -->
     <Footer :name="person.name" />
   </div>
@@ -26,6 +29,7 @@ import { computed } from "vue";
 import Header from "@/Components/Header.vue";
 import Timeline from "@/Components/Timeline.vue";
 import Sidebar from "@/Components/Sidebar.vue";
+import Technologies from "@/Components/Technologies.vue";
 import Footer from "@/Components/Footer.vue";
 
 const props = defineProps({

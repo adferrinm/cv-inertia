@@ -4,7 +4,6 @@
       <div class="cv-header__grid"></div>
     </div>
 
-    <!-- Toggles - Top Right -->
     <div class="cv-header__toggles">
       <ThemeToggle />
       <div class="cv-header__toggles-divider"></div>
@@ -13,18 +12,15 @@
 
     <div class="cv-header__container">
       <div class="cv-header__content">
-        <!-- Prompt -->
         <div class="cv-header__prompt">
           <span class="cv-header__prompt-symbol">$</span>
           <span class="cv-header__prompt-text">whoami</span>
         </div>
 
-        <!-- Title -->
         <h1 class="cv-header__title">
           {{ person.name }}
         </h1>
 
-        <!-- Headline -->
         <div class="cv-header__headline">
           <span class="cv-header__headline-icon">›</span>
           <p class="cv-header__headline-text">
@@ -32,12 +28,10 @@
           </p>
         </div>
 
-        <!-- Summary -->
         <p class="cv-header__summary">
           {{ trans(person.summary) }}
         </p>
 
-        <!-- Contact Info -->
         <div class="cv-header__contacts">
           <a :href="`mailto:${person.email}`" class="contact-link">
             <EnvelopeIcon class="contact-link__icon" />
@@ -53,7 +47,6 @@
           </div>
         </div>
 
-        <!-- Social Links -->
         <div class="cv-header__socials">
           <a
             v-if="person.github_url"

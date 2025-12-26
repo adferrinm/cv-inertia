@@ -52,14 +52,14 @@ class CVSeeder extends Seeder
 
             // Backend
             ['name' => 'Django', 'category' => 'Backend', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'django'],
-            ['name' => 'REST API', 'category' => 'Backend', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'fastapi'],
             ['name' => 'Celery', 'category' => 'Backend', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'celery'],
             ['name' => 'RabbitMQ', 'category' => 'Backend', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'rabbitmq'],
             ['name' => 'Laravel', 'category' => 'Backend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'laravel'],
             ['name' => 'NestJS', 'category' => 'Backend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'nestjs'],
+            ['name' => 'FastAPI', 'category' => 'Backend', 'level' => 3, 'mastery_level' => 'expert', 'logo_slug' => 'fastapi'],
+            ['name' => 'Node.js', 'category' => 'Backend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'nodedotjs'],
             ['name' => 'GraphQL', 'category' => 'Backend', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'graphql'],
             ['name' => 'Spring Boot', 'category' => 'Backend', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'springboot'],
-            ['name' => 'FastAPI', 'category' => 'Backend', 'level' => 3, 'mastery_level' => 'expert', 'logo_slug' => 'fastapi'],
 
             // Databases
             ['name' => 'PostgreSQL', 'category' => 'Databases', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'postgresql'],
@@ -71,7 +71,7 @@ class CVSeeder extends Seeder
 
             // Frontend
             ['name' => 'Vue.js', 'category' => 'Frontend', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'vuedotjs'],
-            ['name' => 'Bootstrap', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'expert', 'logo_slug' => 'bootstrap'],
+            ['name' => 'Bootstrap', 'category' => 'Frontend', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'bootstrap'],
             ['name' => 'Inertia.js', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'inertia'],
             ['name' => 'Tailwind CSS', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'tailwindcss'],
             ['name' => 'Nuxt.js', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'nuxt'],
@@ -89,7 +89,12 @@ class CVSeeder extends Seeder
 
             // Tools
             ['name' => 'Git', 'category' => 'Tools', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'git'],
-            ['name' => 'Linux', 'category' => 'Tools', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'linux'],
+            ['name' => 'Pandas', 'category' => 'Tools', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'pandas'],
+            ['name' => 'Pinia', 'category' => 'Tools', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'pinia'],
+            ['name' => 'Postman', 'category' => 'Tools', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'postman'],
+            ['name' => 'Supabase', 'category' => 'Tools', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'supabase'],
+            ['name' => 'Swagger', 'category' => 'Tools', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'swagger'],
+
         ];
 
         foreach ($skillsData as $skillData) {
@@ -179,8 +184,8 @@ class CVSeeder extends Seeder
                         'en' => 'Computer Science',
                         'es' => 'Ciencias de la Computación'
                     ],
-                    'start_year' => 2015,
-                    'end_year' => 2020,
+                    'start_date' => '2015-09-01',
+                    'end_date' => '2020-07-01',
                     'description' => [
                         'en' => 'Comprehensive training in software engineering, systems and databases.',
                         'es' => 'Formación completa en ingeniería de software, sistemas y bases de datos.'

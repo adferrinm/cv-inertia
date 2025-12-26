@@ -1,14 +1,8 @@
 <template>
   <div class="timeline-item" :class="`timeline-item--${position}`">
-    <!-- Timeline Dot -->
     <div class="timeline-dot" :class="`timeline-dot--${position}`"></div>
-
-    <!-- Content Card -->
     <div class="timeline-card">
-      <!-- Arrow pointing to timeline -->
       <div class="timeline-arrow" :class="`timeline-arrow--${position}`"></div>
-
-      <!-- Header -->
       <div class="timeline-header">
         <div class="timeline-info">
           <div class="flex-1">
@@ -18,14 +12,10 @@
               {{ subtitle }}
             </p>
           </div>
-
-          <!-- Date Badge -->
           <div class="timeline-date">
             {{ dateRange }}
           </div>
         </div>
-
-        <!-- Type Badge -->
         <div class="timeline-badge">
           <span v-if="type === 'experience'" class="timeline-badge__icon--exp"
             >💼</span
@@ -38,21 +28,15 @@
           }}
         </div>
       </div>
-
-      <!-- Description -->
       <p v-if="description" class="timeline-description">
         {{ description }}
       </p>
-
-      <!-- Tags/Skills -->
       <div v-if="tags && tags.length" class="timeline-tags">
         <span v-for="tag in tags" :key="tag" class="timeline-tag">
           <span class="timeline-tag__icon">›</span>
           {{ tag }}
         </span>
       </div>
-
-      <!-- Slot for additional content -->
       <slot></slot>
     </div>
   </div>

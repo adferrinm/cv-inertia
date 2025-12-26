@@ -22,10 +22,10 @@ class EducationForm
                     ->required(),
                 TextInput::make('field')
                     ->required(),
-                TextInput::make('start_year')
+                TextInput::make('start_date')
                     ->required()
                     ->numeric(),
-                TextInput::make('end_year')
+                TextInput::make('end_date')
                     ->required()
                     ->numeric(),
                 Textarea::make('description')

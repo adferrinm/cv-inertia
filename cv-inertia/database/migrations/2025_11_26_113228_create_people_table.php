@@ -11,15 +11,14 @@ return new class extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('headline');
-            $table->text('summary');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('location');
-            $table->string('pdf_url')->nullable();
+            $table->string('email')->unique();
+            $table->string('phone')->nullable();
+            $table->string('location')->nullable();
+            $table->json('headline');
+            $table->json('summary');
             $table->string('github_url')->nullable();
             $table->string('linkedin_url')->nullable();
-            $table->string('portfolio_url')->nullable();
+            $table->string('pdf_url')->nullable();
             $table->timestamps();
         });
     }

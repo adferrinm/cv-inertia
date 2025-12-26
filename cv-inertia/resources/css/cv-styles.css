@@ -1287,35 +1287,16 @@ body {
   position: relative;
 }
 
-.cv-technologies__category-title::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(to right, rgba(16, 185, 129, 0.4), transparent);
-}
-
 .cv-technologies__category-title--master {
   color: var(--color-primary-light);
-}
-
-.cv-technologies__category-title--master::after {
-  background: linear-gradient(to right, rgba(16, 185, 129, 0.4), transparent);
 }
 
 .cv-technologies__category-title--working {
   color: var(--color-linkedin-light);
 }
 
-.cv-technologies__category-title--working::after {
-  background: linear-gradient(to right, rgba(59, 130, 246, 0.4), transparent);
-}
-
 .cv-technologies__category-title--avoid {
   color: var(--color-red-light);
-}
-
-.cv-technologies__category-title--avoid::after {
-  background: linear-gradient(to right, rgba(239, 68, 68, 0.4), transparent);
 }
 
 .cv-technologies__category-icon {

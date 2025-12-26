@@ -1,8 +1,7 @@
 <template>
   <aside class="cv-main__sidebar">
     <div class="cv-sidebar">
-      <!-- Stats Card -->
-      <div class="cv-stats">
+      <!-- <div class="cv-stats">
         <h3 class="cv-stats__header">
           <ClipboardDocumentCheckIcon class="cv-stats__icon" />
           {{ t("summary") }}
@@ -21,9 +20,8 @@
             <span class="cv-stats__value">{{ stats.education }}</span>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <!-- Skills Section -->
       <section v-if="skills?.length" class="cv-skills">
         <div class="cv-skills__header">
           <span class="cv-skills__icon">⚡</span>

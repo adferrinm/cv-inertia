@@ -23,11 +23,11 @@ class EducationTable
                     ->searchable(),
                 TextColumn::make('field')
                     ->searchable(),
-                TextColumn::make('start_year')
-                    ->numeric()
+                TextColumn::make('start_date')
+                    ->date()
                     ->sortable(),
-                TextColumn::make('end_year')
-                    ->numeric()
+                TextColumn::make('end_date')
+                    ->date()
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()

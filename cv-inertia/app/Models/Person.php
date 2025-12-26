@@ -34,6 +34,6 @@ class Person extends Model
 
     public function education(): HasMany
     {
-        return $this->hasMany(Education::class)->orderBy('start_year', 'desc');
+        return $this->hasMany(Education::class)->orderBy('start_date', 'desc');
     }
 }

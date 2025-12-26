@@ -14,8 +14,8 @@ class Education extends Model
         'institution',
         'degree',
         'field',
-        'start_year',
-        'end_year',
+        'start_date',
+        'end_date',
         'description',
     ];
 

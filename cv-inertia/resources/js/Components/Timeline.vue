@@ -1,6 +1,5 @@
 <template>
   <section>
-    <!-- Section Header -->
     <div class="cv-timeline__header">
       <div class="cv-timeline__icon-wrapper">
         <ClipboardDocumentListIcon class="cv-timeline__icon" />
@@ -10,15 +9,9 @@
       <div class="cv-timeline__divider"></div>
     </div>
 
-    <!-- Timeline Container -->
     <div class="cv-timeline__container">
-      <!-- Center vertical line (desktop) -->
       <div class="cv-timeline__line"></div>
-
-      <!-- Mobile vertical line -->
       <div class="cv-timeline__line--mobile"></div>
-
-      <!-- Timeline Items -->
       <div>
         <TimelineItem
           v-for="(item, index) in items"

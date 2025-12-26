@@ -6,7 +6,7 @@
           <CodeBracketIcon class="cv-technologies__icon" />
           <span class="cv-technologies__prompt">$</span>
         </div>
-        <h2 class="cv-technologies__title">Tecnologías y herramientas</h2>
+        <h2 class="cv-technologies__title">{{ t("technologies") }}</h2>
         <div class="cv-technologies__divider"></div>
       </div>
 
@@ -15,7 +15,7 @@
           class="cv-technologies__category-title cv-technologies__category-title--master"
         >
           <span class="cv-technologies__category-icon">⚡</span>
-          Dominio Avanzado
+          {{ t("advancedMastery") }}
         </h3>
         <div class="cv-technologies__grid">
           <TechBadge
@@ -33,7 +33,7 @@
           class="cv-technologies__category-title cv-technologies__category-title--working"
         >
           <span class="cv-technologies__category-icon">🚀</span>
-          Quiero trabajar con
+          {{ t("wantToWorkWith") }}
         </h3>
         <div class="cv-technologies__grid">
           <TechBadge
@@ -51,7 +51,7 @@
           class="cv-technologies__category-title cv-technologies__category-title--avoid"
         >
           <span class="cv-technologies__category-icon">⚠️</span>
-          Prefiero no trabajar con
+          {{ t("preferNotToWorkWith") }}
         </h3>
         <div class="cv-technologies__grid">
           <TechBadge
@@ -72,6 +72,9 @@
 import { computed } from "vue";
 import { CodeBracketIcon } from "@heroicons/vue/24/outline";
 import TechBadge from "@/Components/TechBadge.vue";
+import { useLocale } from "@/Composables/useLocale";
+
+const { t } = useLocale();
 
 const props = defineProps({
   technologies: {

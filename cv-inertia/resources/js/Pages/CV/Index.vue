@@ -30,6 +30,9 @@ import Timeline from "@/Components/Timeline.vue";
 import Sidebar from "@/Components/Sidebar.vue";
 import Technologies from "@/Components/Technologies.vue";
 import Footer from "@/Components/Footer.vue";
+import { useLocale } from "@/Composables/useLocale";
+
+const { trans, locale } = useLocale();
 
 const props = defineProps({
   person: {
@@ -48,11 +51,11 @@ const sortedTimeline = computed(() => {
       items.push({
         id: exp.id,
         type: "experience",
-        title: exp.position,
+        title: trans(exp.position),
         subtitle: exp.company,
         startDate: formatDate(exp.start_date),
         endDate: exp.end_date ? formatDate(exp.end_date) : null,
-        description: exp.description,
+        description: trans(exp.description),
         tags: exp.skills?.map((s) => s.name) || [],
         sortDate: new Date(exp.start_date),
       });
@@ -65,11 +68,11 @@ const sortedTimeline = computed(() => {
       items.push({
         id: edu.id,
         type: "education",
-        title: edu.degree,
-        subtitle: `${edu.institution} • ${edu.field}`,
+        title: trans(edu.degree),
+        subtitle: `${edu.institution} • ${trans(edu.field)}`,
         startDate: String(edu.start_year),
         endDate: String(edu.end_year),
-        description: edu.description,
+        description: trans(edu.description),
         tags: [],
         sortDate: new Date(edu.start_year, 0, 1),
       });
@@ -89,9 +92,12 @@ const stats = computed(() => ({
 
 // Format date helper
 const formatDate = (date) => {
-  return new Date(date).toLocaleDateString("es-ES", {
-    year: "numeric",
-    month: "short",
-  });
+  return new Date(date).toLocaleDateString(
+    locale.value === "en" ? "en-US" : "es-ES",
+    {
+      year: "numeric",
+      month: "short",
+    }
+  );
 };
 </script>

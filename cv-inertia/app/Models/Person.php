@@ -22,6 +22,11 @@ class Person extends Model
         'portfolio_url',
     ];
 
+    protected $casts = [
+        'headline' => 'array',
+        'summary' => 'array',
+    ];
+
     public function experiences(): HasMany
     {
         return $this->hasMany(Experience::class)->orderBy('start_date', 'desc');

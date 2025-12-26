@@ -23,8 +23,14 @@ class CVSeeder extends Seeder
                 ['email' => 'adferrinm@gmail.com'],
                 [
                     'name' => 'Adrian Ferrin Moreno',
-                    'headline' => 'Senior Backend Developer',
-                    'summary' => 'Full-Stack con foco actual en Backend (Django); BI (PowerBI), interés en IA aplicada a desarrollo. Orientado a excelencia y mejora continua.',
+                    'headline' => [
+                        'en' => 'Senior Backend Developer',
+                        'es' => 'Desarrollador Backend Senior'
+                    ],
+                    'summary' => [
+                        'en' => 'Full-Stack developer with current focus on Backend (Django); BI (PowerBI), interest in AI applied to development. Excellence and continuous improvement oriented.',
+                        'es' => 'Full-Stack con foco actual en Backend (Django); BI (PowerBI), interés en IA aplicada a desarrollo. Orientado a excelencia y mejora continua.'
+                    ],
                     'phone' => '+34 600 36 21 19',
                     'location' => 'Madrid, Spain',
                     'github_url' => 'https://github.com/adferrinm',
@@ -84,7 +90,6 @@ class CVSeeder extends Seeder
             // Tools
             ['name' => 'Git', 'category' => 'Tools', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'git'],
             ['name' => 'Linux', 'category' => 'Tools', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'linux'],
-
         ];
 
         foreach ($skillsData as $skillData) {
@@ -98,26 +103,44 @@ class CVSeeder extends Seeder
             $experiencesData = [
                 [
                     'company' => 'WOCU-Monitoring',
-                    'position' => 'Senior Backend Developer',
+                    'position' => [
+                        'en' => 'Senior Backend Developer',
+                        'es' => 'Desarrollador Backend Senior'
+                    ],
                     'start_date' => '2024-06-01',
                     'end_date' => '2025-07-24',
-                    'description' => 'Desarrollo backend con Django, gestión de eventos con Celery, optimización de búsquedas con Elasticsearch, arquitectura con RabbitMQ y Redis.',
+                    'description' => [
+                        'en' => 'Backend development with Django, event management with Celery, search optimization with Elasticsearch, architecture with RabbitMQ and Redis.',
+                        'es' => 'Desarrollo backend con Django, gestión de eventos con Celery, optimización de búsquedas con Elasticsearch, arquitectura con RabbitMQ y Redis.'
+                    ],
                     'skills' => ['Django', 'Celery', 'Elasticsearch', 'PostgreSQL', 'Redis', 'Docker', 'RabbitMQ'],
                 ],
                 [
                     'company' => 'Divine Solutions LLC',
-                    'position' => 'Full-Stack Developer',
+                    'position' => [
+                        'en' => 'Full-Stack Developer',
+                        'es' => 'Desarrollador Full-Stack'
+                    ],
                     'start_date' => '2022-01-01',
                     'end_date' => null,
-                    'description' => 'Desarrollo full-stack con enfoque en backend. Integración de servicios, APIs REST y gestión de bases de datos.',
+                    'description' => [
+                        'en' => 'Full-stack development with backend focus. Service integration, REST APIs and database management.',
+                        'es' => 'Desarrollo full-stack con enfoque en backend. Integración de servicios, APIs REST y gestión de bases de datos.'
+                    ],
                     'skills' => ['Django', 'PostgreSQL', 'React', 'Docker'],
                 ],
                 [
                     'company' => 'CALISOFT',
-                    'position' => 'Full-Stack Developer',
+                    'position' => [
+                        'en' => 'Full-Stack Developer',
+                        'es' => 'Desarrollador Full-Stack'
+                    ],
                     'start_date' => '2020-10-01',
                     'end_date' => '2022-01-01',
-                    'description' => 'Desarrollo con Java Spring, React frontend, gestión de bases de datos MySQL/MongoDB, interfaces con Primefaces.',
+                    'description' => [
+                        'en' => 'Development with Java Spring, React frontend, MySQL/MongoDB database management, interfaces with Primefaces.',
+                        'es' => 'Desarrollo con Java Spring, React frontend, gestión de bases de datos MySQL/MongoDB, interfaces con Primefaces.'
+                    ],
                     'skills' => ['React', 'MySQL', 'MongoDB'],
                 ],
             ];
@@ -128,7 +151,10 @@ class CVSeeder extends Seeder
                 $expData['person_id'] = $person->id;
 
                 $experience = Experience::updateOrCreate(
-                    ['company' => $expData['company'], 'position' => $expData['position'], 'person_id' => $person->id],
+                    [
+                        'company' => $expData['company'],
+                        'person_id' => $person->id
+                    ],
                     $expData
                 );
 
@@ -145,11 +171,20 @@ class CVSeeder extends Seeder
                 ['institution' => 'CUJAE', 'person_id' => $person->id],
                 [
                     'person_id' => $person->id,
-                    'degree' => 'Licenciado en Ingeniería Informática',
-                    'field' => 'Computer Science',
+                    'degree' => [
+                        'en' => 'Bachelor of Computer Engineering',
+                        'es' => 'Licenciado en Ingeniería Informática'
+                    ],
+                    'field' => [
+                        'en' => 'Computer Science',
+                        'es' => 'Ciencias de la Computación'
+                    ],
                     'start_year' => 2015,
                     'end_year' => 2020,
-                    'description' => 'Formación completa en ingeniería de software, sistemas y bases de datos.',
+                    'description' => [
+                        'en' => 'Comprehensive training in software engineering, systems and databases.',
+                        'es' => 'Formación completa en ingeniería de software, sistemas y bases de datos.'
+                    ],
                 ]
             );
         }

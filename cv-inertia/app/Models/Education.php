@@ -19,6 +19,12 @@ class Education extends Model
         'description',
     ];
 
+    protected $casts = [
+        'degree' => 'array',
+        'field' => 'array',
+        'description' => 'array',
+    ];
+
     public function person(): BelongsTo
     {
         return $this->belongsTo(Person::class);

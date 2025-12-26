@@ -4,6 +4,11 @@
       <div class="cv-header__grid"></div>
     </div>
 
+    <!-- Language Toggle -->
+    <div class="cv-header__language">
+      <LanguageToggle />
+    </div>
+
     <div class="cv-header__container">
       <div class="cv-header__content">
         <!-- Prompt -->
@@ -21,13 +26,13 @@
         <div class="cv-header__headline">
           <span class="cv-header__headline-icon">›</span>
           <p class="cv-header__headline-text">
-            {{ person.headline }}
+            {{ trans(person.headline) }}
           </p>
         </div>
 
         <!-- Summary -->
         <p class="cv-header__summary">
-          {{ person.summary }}
+          {{ trans(person.summary) }}
         </p>
 
         <!-- Contact Info -->
@@ -73,7 +78,7 @@
             class="social-btn social-btn--download"
           >
             <ArrowDownTrayIcon class="social-btn__icon" />
-            <span>Download CV</span>
+            <span>{{ trans({ en: "Download CV", es: "Descargar CV" }) }}</span>
           </a>
         </div>
       </div>
@@ -90,6 +95,10 @@ import {
 } from "@heroicons/vue/24/outline";
 import GithubIcon from "@/Components/Icons/GithubIcon.vue";
 import LinkedinIcon from "@/Components/Icons/LinkedinIcon.vue";
+import LanguageToggle from "@/Components/LanguageToggle.vue";
+import { useLocale } from "@/Composables/useLocale";
+
+const { trans } = useLocale();
 
 defineProps({
   person: {

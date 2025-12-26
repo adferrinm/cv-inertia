@@ -18,6 +18,8 @@ class Experience extends Model
     ];
 
     protected $casts = [
+        'position' => 'array',
+        'description' => 'array',
         'start_date' => 'date',
         'end_date' => 'date',
     ];

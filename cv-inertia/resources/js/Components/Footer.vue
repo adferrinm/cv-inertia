@@ -5,7 +5,7 @@
         <div class="cv-footer__left">
           <p class="cv-footer__built">
             <span class="cv-footer__prompt">$</span>
-            <span>Built with</span>
+            <span>{{ t("builtWith") }}</span>
             <span class="cv-footer__heart">❤️</span>
           </p>
           <p class="cv-footer__stack">
@@ -28,6 +28,9 @@
 
 <script setup>
 import { computed } from "vue";
+import { useLocale } from "@/Composables/useLocale";
+
+const { t } = useLocale();
 
 const props = defineProps({
   name: {

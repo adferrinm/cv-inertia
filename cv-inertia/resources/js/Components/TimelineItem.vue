@@ -31,7 +31,11 @@
             >💼</span
           >
           <span v-else class="timeline-badge__icon--edu">🎓</span>
-          {{ type === "experience" ? "Experience" : "Education" }}
+          {{
+            type === "experience"
+              ? trans({ en: "Experience", es: "Experiencia" })
+              : trans({ en: "Education", es: "Educación" })
+          }}
         </div>
       </div>
 
@@ -56,6 +60,9 @@
 
 <script setup>
 import { computed } from "vue";
+import { useLocale } from "@/Composables/useLocale";
+
+const { trans } = useLocale();
 
 const props = defineProps({
   title: {
@@ -95,7 +102,7 @@ const props = defineProps({
 });
 
 const dateRange = computed(() => {
-  const end = props.endDate || "Present";
+  const end = props.endDate || trans({ en: "Present", es: "Presente" });
   return `${props.startDate} - ${end}`;
 });
 </script>

@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->enum('category', ['language', 'framework', 'database', 'devops', 'tool', 'other'])->default('tool');
+            $table->enum('category', ['Languages', 'Backend', 'Frontend', 'Databases', 'Cloud', 'DevOps', 'Tools'])->default('Tools');
             $table->string('logo_slug');
             $table->integer('level')->default(3);
             $table->timestamps();

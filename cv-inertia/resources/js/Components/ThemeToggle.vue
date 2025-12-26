@@ -1,12 +1,11 @@
 <template>
   <div class="theme-selector">
-    <!-- <SunIcon class="theme-selector__icon" /> -->
     <button
       @click="setTheme('dark')"
       class="theme-selector__button"
       :class="{ 'theme-selector__button--active': theme === 'dark' }"
     >
-      <MoonIcon class="theme-selector__button-icon" />
+      <MoonIcon />
       <span class="theme-selector__text">Dark</span>
     </button>
 
@@ -15,14 +14,15 @@
       class="theme-selector__button"
       :class="{ 'theme-selector__button--active': theme === 'light' }"
     >
-      <SunIcon class="theme-selector__button-icon" />
+      <SunIcon />
       <span class="theme-selector__text">Light</span>
     </button>
   </div>
 </template>
 
 <script setup>
-import { SunIcon, MoonIcon } from "@heroicons/vue/24/outline";
+import SunIcon from "@/Components/Icons/SunIcon.vue";
+import MoonIcon from "@/Components/Icons/MoonIcon.vue";
 import { useTheme } from "@/Composables/useTheme";
 
 const { theme, setTheme } = useTheme();

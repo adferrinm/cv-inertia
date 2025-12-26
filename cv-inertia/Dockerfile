@@ -1,4 +1,4 @@
-FROM php:8.2-cli
+FROM php:8.4-cli
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -7,7 +7,10 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     libpq-dev \
-    && docker-php-ext-install pdo pdo_pgsql \
+    libzip-dev \
+    libicu-dev \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install pdo pdo_pgsql zip intl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -57,7 +60,7 @@ RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
 EXPOSE 8080
 
 # Start command
-CMD php artisan migrate --force && \
+CMD php artisan migrate:fresh --force && \
     php artisan db:seed --force && \
     php artisan config:cache && \
     php artisan route:cache && \

@@ -7,17 +7,16 @@
     <div class="cv-main">
       <div class="cv-main__grid">
         <!-- Timeline Column -->
-        <div class="cv-main__timeline">
+        <div class="cv-main__content">
           <Timeline :items="sortedTimeline" />
+          <!-- Technologies Section -->
+          <Technologies :technologies="person.skills" />
         </div>
 
         <!-- Sidebar Column -->
         <Sidebar :skills="person.skills" :stats="stats" />
       </div>
     </div>
-
-    <!-- Technologies Section -->
-    <Technologies :technologies="person.skills" />
 
     <!-- Footer -->
     <Footer :name="person.name" />

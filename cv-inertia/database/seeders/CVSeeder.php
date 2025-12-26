@@ -35,34 +35,56 @@ class CVSeeder extends Seeder
         }
 
         $skillsData = [
+            // Languages
             ['name' => 'Python', 'category' => 'Languages', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'python'],
+            ['name' => 'JavaScript', 'category' => 'Languages', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'javascript'],
+            ['name' => 'PHP', 'category' => 'Languages', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'php'],
+            ['name' => 'TypeScript', 'category' => 'Languages', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'typescript'],
+            ['name' => 'Java', 'category' => 'Languages', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'openjdk'],
+            ['name' => 'C++', 'category' => 'Languages', 'level' => 1, 'mastery_level' => 'avoid', 'logo_slug' => 'cplusplus'],
+            ['name' => 'C#', 'category' => 'Languages', 'level' => 1, 'mastery_level' => 'avoid', 'logo_slug' => 'sharp'],
+
+            // Backend
             ['name' => 'Django', 'category' => 'Backend', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'django'],
-            ['name' => 'PostgreSQL', 'category' => 'Databases', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'postgresql'],
-            ['name' => 'Docker', 'category' => 'DevOps', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'docker'],
-            ['name' => 'Git', 'category' => 'Tools', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'git'],
             ['name' => 'REST API', 'category' => 'Backend', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'fastapi'],
-            ['name' => 'MySQL', 'category' => 'Databases', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'mysql'],
             ['name' => 'Celery', 'category' => 'Backend', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'celery'],
-            ['name' => 'Redis', 'category' => 'Databases', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'redis'],
-            ['name' => 'Elasticsearch', 'category' => 'Databases', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'elasticsearch'],
             ['name' => 'RabbitMQ', 'category' => 'Backend', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'rabbitmq'],
+            ['name' => 'Laravel', 'category' => 'Backend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'laravel'],
+            ['name' => 'NestJS', 'category' => 'Backend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'nestjs'],
+            ['name' => 'GraphQL', 'category' => 'Backend', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'graphql'],
+            ['name' => 'Spring Boot', 'category' => 'Backend', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'springboot'],
+            ['name' => 'FastAPI', 'category' => 'Backend', 'level' => 3, 'mastery_level' => 'expert', 'logo_slug' => 'fastapi'],
+
+            // Databases
+            ['name' => 'PostgreSQL', 'category' => 'Databases', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'postgresql'],
+            ['name' => 'MySQL', 'category' => 'Databases', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'mysql'],
+            ['name' => 'Redis', 'category' => 'Databases', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'redis'],
+            ['name' => 'Elasticsearch', 'category' => 'Databases', 'level' => 4, 'mastery_level' => 'working', 'logo_slug' => 'elasticsearch'],
+            ['name' => 'MongoDB', 'category' => 'Databases', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'mongodb'],
+            ['name' => 'Prisma', 'category' => 'Databases', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'prisma'],
+
+            // Frontend
+            ['name' => 'Vue.js', 'category' => 'Frontend', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'vuedotjs'],
+            ['name' => 'Bootstrap', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'expert', 'logo_slug' => 'bootstrap'],
+            ['name' => 'Inertia.js', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'inertia'],
+            ['name' => 'Tailwind CSS', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'tailwindcss'],
+            ['name' => 'Nuxt.js', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'nuxt'],
+            ['name' => 'Bulma CSS', 'category' => 'Frontend', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'bulma'],
+            ['name' => 'React.js', 'category' => 'Frontend', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'react'],
+            ['name' => 'Next.js', 'category' => 'Frontend', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'nextdotjs'],
+
+            // Cloud
+            ['name' => 'AWS', 'category' => 'Cloud', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'icloud'],
+            ['name' => 'Azure', 'category' => 'Cloud', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'icloud'],
+
+            // DevOps
+            ['name' => 'Docker', 'category' => 'DevOps', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'docker'],
+            ['name' => 'Kubernetes', 'category' => 'DevOps', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'kubernetes'],
+
+            // Tools
+            ['name' => 'Git', 'category' => 'Tools', 'level' => 5, 'mastery_level' => 'expert', 'logo_slug' => 'git'],
             ['name' => 'Linux', 'category' => 'Tools', 'level' => 4, 'mastery_level' => 'expert', 'logo_slug' => 'linux'],
 
-            ['name' => 'Vue.js', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'vuedotjs'],
-            ['name' => 'React', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'react'],
-            ['name' => 'TypeScript', 'category' => 'Languages', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'typescript'],
-            ['name' => 'Kubernetes', 'category' => 'DevOps', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'kubernetes'],
-            ['name' => 'AWS', 'category' => 'Cloud', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'icloud'],
-            ['name' => 'Go', 'category' => 'Languages', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'go'],
-            ['name' => 'GraphQL', 'category' => 'Backend', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'graphql'],
-            ['name' => 'MongoDB', 'category' => 'Databases', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'mongodb'],
-            ['name' => 'Next.js', 'category' => 'Frontend', 'level' => 2, 'mastery_level' => 'working', 'logo_slug' => 'nextdotjs'],
-            ['name' => 'Tailwind CSS', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'tailwindcss'],
-            ['name' => 'Laravel', 'category' => 'Backend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'laravel'],
-            ['name' => 'Inertia.js', 'category' => 'Frontend', 'level' => 3, 'mastery_level' => 'working', 'logo_slug' => 'inertia'],
-
-            ['name' => 'Java', 'category' => 'Languages', 'level' => 1, 'mastery_level' => 'avoid', 'logo_slug' => 'openjdk'],
-            ['name' => 'C++', 'category' => 'Languages', 'level' => 1, 'mastery_level' => 'avoid', 'logo_slug' => 'cplusplus'],
         ];
 
         foreach ($skillsData as $skillData) {
@@ -78,7 +100,7 @@ class CVSeeder extends Seeder
                     'company' => 'WOCU-Monitoring',
                     'position' => 'Senior Backend Developer',
                     'start_date' => '2024-06-01',
-                    'end_date' => null,
+                    'end_date' => '2025-07-24',
                     'description' => 'Desarrollo backend con Django, gestión de eventos con Celery, optimización de búsquedas con Elasticsearch, arquitectura con RabbitMQ y Redis.',
                     'skills' => ['Django', 'Celery', 'Elasticsearch', 'PostgreSQL', 'Redis', 'Docker', 'RabbitMQ'],
                 ],
@@ -86,7 +108,7 @@ class CVSeeder extends Seeder
                     'company' => 'Divine Solutions LLC',
                     'position' => 'Full-Stack Developer',
                     'start_date' => '2022-01-01',
-                    'end_date' => '2024-06-01',
+                    'end_date' => null,
                     'description' => 'Desarrollo full-stack con enfoque en backend. Integración de servicios, APIs REST y gestión de bases de datos.',
                     'skills' => ['Django', 'PostgreSQL', 'React', 'Docker'],
                 ],

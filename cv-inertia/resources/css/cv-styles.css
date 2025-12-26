@@ -345,12 +345,12 @@ html, body {
   }
 }
 
-.cv-main__timeline {
+.cv-main__content {
   grid-column: span 1;
 }
 
 @media (min-width: 1024px) {
-  .cv-main__timeline {
+  .cv-main__content {
     grid-column: span 3;
   }
 }

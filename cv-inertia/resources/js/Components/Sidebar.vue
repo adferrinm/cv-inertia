@@ -1,6 +1,28 @@
 <template>
   <aside class="cv-main__sidebar">
     <div class="cv-sidebar">
+      <!-- Stats Card -->
+      <div class="cv-stats">
+        <h3 class="cv-stats__header">
+          <ClipboardDocumentCheckIcon class="cv-stats__icon" />
+          Summary
+        </h3>
+        <div class="cv-stats__list">
+          <div class="cv-stats__item">
+            <span class="cv-stats__label">Experience</span>
+            <span class="cv-stats__value">{{ stats.experiences }}</span>
+          </div>
+          <div class="cv-stats__item">
+            <span class="cv-stats__label">Skills</span>
+            <span class="cv-stats__value">{{ stats.skills }}</span>
+          </div>
+          <div class="cv-stats__item">
+            <span class="cv-stats__label">Education</span>
+            <span class="cv-stats__value">{{ stats.education }}</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Skills Section -->
       <section v-if="skills?.length" class="cv-skills">
         <div class="cv-skills__header">
@@ -27,28 +49,6 @@
           </div>
         </div>
       </section>
-
-      <!-- Stats Card -->
-      <div class="cv-stats">
-        <h3 class="cv-stats__header">
-          <ClipboardDocumentCheckIcon class="cv-stats__icon" />
-          Summary
-        </h3>
-        <div class="cv-stats__list">
-          <div class="cv-stats__item">
-            <span class="cv-stats__label">Experience</span>
-            <span class="cv-stats__value">{{ stats.experiences }}</span>
-          </div>
-          <div class="cv-stats__item">
-            <span class="cv-stats__label">Skills</span>
-            <span class="cv-stats__value">{{ stats.skills }}</span>
-          </div>
-          <div class="cv-stats__item">
-            <span class="cv-stats__label">Education</span>
-            <span class="cv-stats__value">{{ stats.education }}</span>
-          </div>
-        </div>
-      </div>
     </div>
   </aside>
 </template>
@@ -69,12 +69,20 @@ const props = defineProps({
   },
 });
 
-const categories = computed(() => {
+const filteredSkills = computed(() => {
   if (!props.skills) return [];
-  return [...new Set(props.skills.map((s) => s.category))];
+  return props.skills.filter((skill) => {
+    const level = String(skill.level).toLowerCase();
+    return level !== "avoid" && level !== "1" && level !== "2";
+  });
+});
+
+const categories = computed(() => {
+  if (!filteredSkills.value.length) return [];
+  return [...new Set(filteredSkills.value.map((s) => s.category))];
 });
 
 const getSkillsByCategory = (category) => {
-  return props.skills.filter((s) => s.category === category);
+  return filteredSkills.value.filter((s) => s.category === category);
 };
 </script>

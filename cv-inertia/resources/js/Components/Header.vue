@@ -4,8 +4,10 @@
       <div class="cv-header__grid"></div>
     </div>
 
-    <!-- Language Toggle -->
-    <div class="cv-header__language">
+    <!-- Toggles - Top Right -->
+    <div class="cv-header__toggles">
+      <ThemeToggle />
+      <div class="cv-header__toggles-divider"></div>
       <LanguageToggle />
     </div>
 
@@ -96,6 +98,7 @@ import {
 import GithubIcon from "@/Components/Icons/GithubIcon.vue";
 import LinkedinIcon from "@/Components/Icons/LinkedinIcon.vue";
 import LanguageToggle from "@/Components/LanguageToggle.vue";
+import ThemeToggle from "@/Components/ThemeToggle.vue";
 import { useLocale } from "@/Composables/useLocale";
 
 const { trans } = useLocale();

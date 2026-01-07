@@ -1,4 +1,4 @@
-FROM php:8.4-cli
+FROM php:8.4-fpm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     libzip-dev \
     libicu-dev \
+    nginx \
+    supervisor \
     && docker-php-ext-configure intl \
     && docker-php-ext-install pdo pdo_pgsql zip intl \
     && apt-get clean \
@@ -45,23 +47,18 @@ RUN composer dump-autoload --optimize
 # Build frontend assets
 RUN npm run build
 
-# Debug: Ver estructura completa del build
-RUN echo "=== Build directory structure ===" && \
-    find public/build -type f && \
-    echo "=== Manifest check ===" && \
-    (cat public/build/.vite/manifest.json 2>/dev/null || echo "No manifest in .vite") && \
-    (cat public/build/manifest.json 2>/dev/null || echo "No manifest in root") && \
-    echo "===" || true
+# Copy configuration files
+COPY docker/nginx.conf /etc/nginx/sites-available/default
+COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 
 # Set permissions
-RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
+RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache && \
+    chmod -R 755 /app/storage /app/bootstrap/cache && \
+    chmod +x /usr/local/bin/entrypoint.sh
 
-# Expose port
-EXPOSE 8080
+# Expose port (Render usa 10000 por defecto)
+EXPOSE 10000
 
 # Start command
-CMD php artisan migrate:fresh --force && \
-    php artisan db:seed --force && \
-    php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan serve --host=0.0.0.0 --port=${PORT:-8080}
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

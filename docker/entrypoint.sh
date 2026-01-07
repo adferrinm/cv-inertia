@@ -12,13 +12,18 @@ done
 
 echo "Database is ready!"
 
-# Run migrations
+# Run migrations (sin --fresh, para no borrar datos)
 echo "Running migrations..."
 php artisan migrate --force
 
-# Run seeders
-echo "Running seeders..."
-php artisan db:seed --force
+# Solo ejecutar seeders si las tablas están vacías
+echo "Checking if database needs seeding..."
+if php artisan tinker --execute="echo \App\Models\Person::count();" | grep -q "^0$"; then
+    echo "Database is empty, running seeders..."
+    php artisan db:seed --force
+else
+    echo "Database already has data, skipping seeders..."
+fi
 
 # Clear and cache configurations
 echo "Optimizing application..."

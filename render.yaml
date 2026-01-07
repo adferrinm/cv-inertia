@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: adrian-cv
+    name: adrianferrinmoreno-portfolio
     env: docker
     plan: free
     dockerfilePath: ./Dockerfile

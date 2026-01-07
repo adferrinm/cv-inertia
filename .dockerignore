@@ -15,3 +15,7 @@ public/hot
 public/storage
 bootstrap/cache/*
 !bootstrap/cache/.gitkeep
+storage/*.key
+.phpunit.result.cache
+.github
+tests

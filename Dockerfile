@@ -26,20 +26,20 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 # Set working directory
 WORKDIR /app
 
-# Copy composer files from cv-inertia
-COPY cv-inertia/composer.json cv-inertia/composer.lock ./
+# Copy composer files (ahora directamente, sin cv-inertia/)
+COPY composer.json composer.lock ./
 
 # Install PHP dependencies
 RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
 
-# Copy package files from cv-inertia
-COPY cv-inertia/package.json cv-inertia/package-lock.json ./
+# Copy package files (ahora directamente)
+COPY package.json package-lock.json ./
 
 # Install Node dependencies
 RUN npm ci
 
-# Copy entire cv-inertia folder (excluding what's in .dockerignore)
-COPY cv-inertia/ .
+# Copy entire project (ahora directamente)
+COPY . .
 
 # Generate autoload files
 RUN composer dump-autoload --optimize
@@ -57,7 +57,7 @@ RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache && \
     chmod -R 755 /app/storage /app/bootstrap/cache && \
     chmod +x /usr/local/bin/entrypoint.sh
 
-# Expose port (Render usa 10000 por defecto)
+# Expose port
 EXPOSE 10000
 
 # Start command

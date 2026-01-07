@@ -19,7 +19,7 @@ services:
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
-        value: db.xxxxxxxxxxxxx.supabase.co # Tu host de Supabase
+        value: db.xxxxxxxxxxxxx.supabase.co
       - key: DB_PORT
         value: 5432
       - key: DB_DATABASE
@@ -27,7 +27,7 @@ services:
       - key: DB_USERNAME
         value: postgres
       - key: DB_PASSWORD
-        sync: false # La añadirás manualmente en Render por seguridad
+        sync: false
       - key: LOG_CHANNEL
         value: stderr
       - key: SESSION_DRIVER
